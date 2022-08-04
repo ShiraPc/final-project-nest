@@ -7,7 +7,7 @@ import { UserModule } from './user/user.module';
 
 
 @Module({
-  imports: [AuthModule, MongooseModule.forRoot('mongodb://localhost:27017/finalProjectDB'),UserModule],
+  imports: [AuthModule, MongooseModule.forRoot('mongodb://127.0.0.1:27017/finalProjectDB'),UserModule],
 
 })
 
