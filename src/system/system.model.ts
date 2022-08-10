@@ -16,5 +16,5 @@ export class System {
     objectName: string;
     managerUid: string;
     description: string;
-    communicationDetails: object;
+    communicationDetails: Object;
 }
