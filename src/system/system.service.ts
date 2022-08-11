@@ -29,7 +29,7 @@ export class SystemService {
         return await this.systemModel.findOne({ _id: systemId });
     }
     async update(updateSystem: System, id:string) {
-      const _updateUser = this.systemModel
+      const _updatesystem = this.systemModel
       .findOne({_id :id});
       const _system={$set:({
         uid:updateSystem.uid,
