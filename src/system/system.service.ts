@@ -13,6 +13,7 @@ export class SystemService {
         const createdSystem = new this.systemModel({
           topic: system.topic,
           urlName: system.urlName,
+          urlImage: system.urlImage,
           objectName:system.objectName,
           managerUid:system.managerUid,
           description:system.description,
@@ -34,6 +35,7 @@ export class SystemService {
         uid:updateSystem.uid,
         topic: updateSystem.topic,
         urlName: updateSystem.urlName,
+        urlImage: updateSystem.urlImage,
         objectName: updateSystem.objectName,
         managerUid: updateSystem.managerUid,
         description: updateSystem.description,
