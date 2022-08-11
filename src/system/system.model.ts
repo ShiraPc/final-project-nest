@@ -3,7 +3,7 @@ import * as mongoose from 'mongoose';
 export const SystemSchema = new mongoose.Schema({
     topic: { type: String, required: true},
     urlName: { type: String, required: true, unique: true},
-    urlImage:{type: String, required: true, unique: true},
+    urlImage:{type: String, required: true},
     objectName: { type: String, required: true },
     managerUid: { type: String, required: true },
     description: { type: String, required: true },
