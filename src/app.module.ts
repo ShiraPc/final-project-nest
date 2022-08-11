@@ -10,13 +10,7 @@ import { SystemModule } from './system/system.module';
 
 
 @Module({
-<<<<<<< HEAD
   imports: [AuthModule, MongooseModule.forRoot('mongodb://127.0.0.1:27017/finalProjectDB'),UserModule],
-=======
-  imports: [AuthModule, MongooseModule.forRoot('mongodb://localhost:27017/finalProjectDB'),UserModule, SystemModule],
-  controllers: [],
-  providers: [],
->>>>>>> 220e0781d751e0e66990d5cb75778021f13cffd8
 
 })
 

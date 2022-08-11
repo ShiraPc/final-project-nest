@@ -4,7 +4,10 @@ import { User } from './user.model';
 import { InjectModel } from '@nestjs/mongoose';
 import { urlencoded } from 'express';
 import console from 'console';
-import { userDTO } from 'src/DTO/user.dto';
+import { userDTO } from 's
+  findOne(id: any) {
+      throw new Error("Method not implemented.");
+  }rc/DTO/user.dto';
 
 @Injectable()
 export class UserService {
