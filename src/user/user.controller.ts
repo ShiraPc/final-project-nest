@@ -1,8 +1,14 @@
+
 import { Body, Controller, Get, Post } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
 import { User, userSchema } from "src/schemas/user.schema";
 //import { UserService } from "./user.service";
+
+import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
+import { User } from './user.model';
+import { UserService } from "./user.service";
+
 
 @Controller('user')
 export class UserController{
@@ -20,6 +26,7 @@ export class UserController{
     // };
     
 
+<<<<<<< HEAD
     // @Get()
     // getUser(id:string){
     //     userSchema.get(id);
@@ -27,6 +34,23 @@ export class UserController{
     //     //  });
       
     //   }
+=======
+    @Get('/:id')
+    getOneUsers(@Param('id') id:string) {
+        return this.userService.findOne(id);
+    };
+    
+    @Put('/:id')
+    updateUser(@Body() updateUser:User, @Param('id') id:string) {
+        return this.userService.update(updateUser , id);
+    };
+
+    @Delete('/:id')
+    deleteUser(@Param('id') id:string){
+        return this.userService.delete(id);
+    }
+
+>>>>>>> ce2499dedc4e22671d70386b7eb3f1fd25dc93f9
 }
 
 
