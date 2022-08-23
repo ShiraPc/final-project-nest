@@ -2,7 +2,7 @@ import { Model } from 'mongoose';
 import { Injectable, Inject } from '@nestjs/common';
 import { User } from './user.model';
 import { InjectModel } from '@nestjs/mongoose';
-<<<<<<< HEAD
+
 import { User } from 'src/schemas/user.schema';
 //import { User, UserDocument } from './schemas/user.schema';
 //import { CreateUserDto } from './dto/create-user.dto';
@@ -20,7 +20,7 @@ import { User } from 'src/schemas/user.schema';
 //     return this.catModel.find().exec();
 //   }
 // }
-=======
+
 
 @Injectable()
 export class UserService {
@@ -40,7 +40,7 @@ export class UserService {
     return this.userModel.find().exec();
   }
 }
->>>>>>> 220e0781d751e0e66990d5cb75778021f13cffd8
+
 
 
 
