@@ -1,8 +1,8 @@
 export class systemDTO{
-    topic: string;
+    admin_id: string;
+    subject: string;
     urlName: string;
-    objectName: string;
-    managerUid: string;
+    urlImage: string;
     description: string;
-    communicationDetails:Object;
+    communicationDetails:string;
 }
