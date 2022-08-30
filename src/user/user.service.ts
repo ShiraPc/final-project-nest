@@ -6,6 +6,25 @@ import { urlencoded } from 'express';
 import console from 'console';
 import { userDTO } from 'src/DTO/user.dto';
 
+// import { User } from 'src/schemas/user.schema';
+//import { User, UserDocument } from './schemas/user.schema';
+//import { CreateUserDto } from './dto/create-user.dto';
+
+// @Injectable()
+// export class CatsService {
+//   //constructor(@InjectModel(User.name) private catModel: Model<UserDocument>) {}
+
+//   async create(createCatDto: CreateUserDto): Promise<User> {
+//     const createdCat = new this.catModel(createCatDto);
+//     return createdCat.save();
+//   }
+
+//   async findAll(): Promise<User[]> {
+//     return this.catModel.find().exec();
+//   }
+// }
+
+
 @Injectable()
 export class UserService {
   constructor(
@@ -50,5 +69,6 @@ export class UserService {
 }
 
 }
+
 
 
