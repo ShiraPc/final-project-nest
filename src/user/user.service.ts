@@ -29,7 +29,7 @@ export class UserService {
 
   
   async findOne(userId: string): Promise<userDTO> {
-    return await this.userModel.findOne({ _id: userId });
+    return await this.userModel.findOne({ uid: userId });
 }
 
   async update(updateUser: User, id:string) {
