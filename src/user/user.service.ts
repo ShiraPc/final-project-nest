@@ -35,8 +35,8 @@ export class UserService {
     return await this.userModel.findOne({ _id: userId });
 }
 
-  async update(updateUser: User, id:number) {
-    const _updateUser = this.userModel.findOne(_id => _id==id);
+  async update(updateUser: User, id:string) {
+    const _updateUser = this.userModel.findOne({_id :id});
     const _user={$set:({
       uid:updateUser.uid,
       role: updateUser.role,
@@ -47,8 +47,11 @@ export class UserService {
     })};
     await this.userModel.updateOne({_id:Object(id)},updateUser);
   }
+
+  async delete(id:string) {
+    await this.userModel.deleteOne({_id:id});
 }
 
-
+}
 
 

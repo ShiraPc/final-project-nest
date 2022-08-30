@@ -13,8 +13,9 @@ export class System {
     uid: string;
     topic: string;
     urlName: string;
+    urlImage: string;
     objectName: string;
     managerUid: string;
     description: string;
-    communicationDetails: object;
+    communicationDetails: Object;
 }
