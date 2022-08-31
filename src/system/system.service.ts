@@ -2,12 +2,13 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { systemDTO } from 'src/DTO/system.dto';
+import { User } from 'src/user/user.model';
 import { System } from './system.model';
-
 @Injectable()
 export class SystemService {
     constructor(
         @InjectModel('System') private readonly systemModel: Model<System>) { }
+        // @InjectModel('User') private readonly userModel: Model<User>
     
       async create(system: System) {
         const createdSystem = new this.systemModel({
@@ -19,18 +20,19 @@ export class SystemService {
           description:system.description,
           communicationDetails: system.communicationDetails
         });
-        await createdSystem.save();
+        // await createdSystem.save();
+        // const updtUser= this.userModel.findOne({uid:createdSystem.managerUid})
+
       }
     
       findAll(): Promise<System[]> {
         return this.systemModel.find().exec();
       }
-      async findOne(systemId: string): Promise<systemDTO> {
-        return await this.systemModel.findOne({ _id: systemId });
+      async find(systemId: string): Promise<systemDTO[]> {
+        return await this.systemModel.find({ managerUid: systemId });
     }
     async update(updateSystem: System, id:string) {
-      const _updatesystem = this.systemModel
-      .findOne({_id :id});
+      const _updatesystem = this.systemModel.findOne({_id :id});
       const _system={$set:({
         uid:updateSystem.uid,
         topic: updateSystem.topic,
