@@ -3,12 +3,12 @@ export enum status {
 }
 
 export class requestDTO{
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone: string;
-    system_id: string;
+    firstName:    string;
+    lastName:     string;
+    email:        string;
+    phone:        string;
+    system_id:    string;
     display_name: string;
-    status:status;
-    notes:string;
+    status:       status;
+    notes:        string;
 }
