@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { systemDTO } from 'src/DTO/system.dto';
+
 import { System } from './system.model';
 
 @Injectable()
@@ -25,6 +26,7 @@ export class SystemService {
       findAll(): Promise<System[]> {
         return this.systemModel.find().exec();
       }
+
       async findOne(systemId: string): Promise<systemDTO> {
         return await this.systemModel.findOne({ _id: systemId });
     }
@@ -46,4 +48,5 @@ export class SystemService {
     async delete(idS:string) {
       await this.systemModel.deleteOne({_id:idS});
   }
+
 }
