@@ -11,7 +11,7 @@ import { LocationModule } from './location/location.module';
 
 @Module({
 
-  imports: [AuthModule, MongooseModule.forRoot('mongodb://127.0.0.1:27017/finalProjectDB'),UserModule, SystemModule, LocationModule, RequestModule],
+  imports: [AuthModule, MongooseModule.forRoot('mongodb://127.0.0.1:27017/finalProjectDB'),UserModule, SystemModule, LocationModule],
   controllers: [],
   providers: [],
 
