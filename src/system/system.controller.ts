@@ -1,3 +1,4 @@
+
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { System } from './system.model';
 import { SystemService } from './system.service';
@@ -28,4 +29,5 @@ export class SystemController {
     deleteSystem(@Param('id') id:string){
         return this.systemService.delete(id);
     }
+
 }
