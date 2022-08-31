@@ -19,7 +19,7 @@ export class SystemController {
     };
     @Get('/:id')
     getOneSystem(@Param('id') id:string) {
-        return this.systemService.findOne(id);
+        return this.systemService.find(id);
     };
     @Put('/:id')
     updateSystem(@Body() updateSystem:System, @Param('id') id:string) {
