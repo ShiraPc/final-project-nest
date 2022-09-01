@@ -5,7 +5,7 @@ export const SystemSchema = new mongoose.Schema({
     urlName: { type: String, required: true, unique: true},
     urlImage:{type: String, required: true},
     objectName: { type: String, required: true },
-    managerUid: { type: String, required: true },
+    manager_id: { type: String, required: true },
     description: { type: String, required: true },
     communicationDetails: { type: Object,  required: true }
 })
@@ -16,7 +16,7 @@ export class System {
     urlName: string;
     urlImage: string;
     objectName: string;
-    managerUid: string;
+    manager_id: string;
     description: string;
     communicationDetails: Object;
 }

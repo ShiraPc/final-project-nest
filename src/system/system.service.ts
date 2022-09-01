@@ -16,7 +16,7 @@ export class SystemService {
           urlName: system.urlName,
           urlImage: system.urlImage,
           objectName:system.objectName,
-          managerUid:system.managerUid,
+          manager_id:system.manager_id,
           description:system.description,
           communicationDetails: system.communicationDetails
         });
@@ -29,7 +29,7 @@ export class SystemService {
       }
 
       async find(systemId: string): Promise<systemDTO[]> {
-        return await this.systemModel.find({ managerUid: systemId });
+        return await this.systemModel.find({ manager_id: systemId });
     }
     async update(updateSystem: System, id:string) {
       const _updatesystem = this.systemModel.findOne({_id :id});
@@ -39,7 +39,7 @@ export class SystemService {
         urlName: updateSystem.urlName,
         urlImage: updateSystem.urlImage,
         objectName: updateSystem.objectName,
-        managerUid: updateSystem.managerUid,
+        manager_id: updateSystem.manager_id,
         description: updateSystem.description,
         communicationDetails: updateSystem.communicationDetails,
       })};

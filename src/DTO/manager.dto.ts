@@ -7,7 +7,7 @@ export class managerDTO{
     system_id:string;
     active:boolean;
     display_name:string;
-    role:role;
+    role:string;
     invitation_sent: [];
     
 }

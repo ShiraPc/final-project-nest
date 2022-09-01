@@ -9,26 +9,26 @@ export class RequestController {
     }
 
     @Post()
-    createUser(@Body() newRequest: Request) {
+    createRequest(@Body() newRequest: Request) {
         this.requestService.create(newRequest);
     }
     @Get()
-    getAllUsers() {
+    getAllRequest() {
         return this.requestService.findAll();
     };
 
     @Get('/:id')
-    getOneUsers(@Param('id') id:string) {
+    getOneRequest(@Param('id') id:string) {
         return this.requestService.findOne(id);
     };
     
     @Put('/:id')
-    updateUser(@Body() updateRequest:Request, @Param('id') id:string) {
+    updateRequest(@Body() updateRequest:Request, @Param('id') id:string) {
         return this.requestService.update(updateRequest , id);
     };
 
     @Delete('/:id')
-    deleteUser(@Param('id') id:string){
+    deleteRequest(@Param('id') id:string){
         return this.requestService.delete(id);
     }
 
