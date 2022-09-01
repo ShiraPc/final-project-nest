@@ -1,15 +1,11 @@
 import { IsEmail, IsEmpty, IsNotEmpty, IsPhoneNumber, Length } from "class-validator";
 import * as mongoose from "mongoose";
 
-export enum Erole {
-    admin,
-    manager,
-    customer
-}
+
 
 export const UserSchema = new mongoose.Schema({
     uid: { type: String, required: true },
-    role: { type: String, enum: Erole, default: Erole.customer },
+    // role: { type: String, enum: Erole, default: Erole.customer },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     phone: { type: String, required: true },
@@ -18,8 +14,8 @@ export const UserSchema = new mongoose.Schema({
 
 export class User {
     uid: string;
-    @IsNotEmpty() 
-    role: string;
+    // @IsNotEmpty() 
+    // role: string;
     @IsNotEmpty() 
     @Length(2) 
     firstName: string;
