@@ -4,6 +4,7 @@ import { Model } from 'mongoose';
 import { find } from 'rxjs';
 import { systemDTO } from 'src/DTO/system.dto';
 import { User } from 'src/user/user.model';
+
 import { System } from './system.model';
 @Injectable()
 export class SystemService {
@@ -31,6 +32,7 @@ export class SystemService {
 
       async find(systemId: string): Promise<systemDTO[]> {
         return await this.systemModel.find({ managerUid: systemId });
+
     }
     async update(updateSystem: System, id:string) {
       const _updatesystem = this.systemModel.findOne({_id :id});
@@ -49,4 +51,5 @@ export class SystemService {
     async delete(idS:string) {
       await this.systemModel.deleteOne({_id:idS});
   }
+
 }
