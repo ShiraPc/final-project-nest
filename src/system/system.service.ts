@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { find } from 'rxjs';
 import { systemDTO } from 'src/DTO/system.dto';
 import { User } from 'src/user/user.model';
 
@@ -22,13 +23,14 @@ export class SystemService {
           communicationDetails: system.communicationDetails
         });
         // await createdSystem.save();
+        // await createdSystem.save();
         // const updtUser= this.userModel.findOne({uid:createdSystem.managerUid})
-
       }
     
       findAll(): Promise<System[]> {
         return this.systemModel.find().exec();
       }
+
       async find(systemId: string): Promise<systemDTO[]> {
         return await this.systemModel.find({ managerUid: systemId });
 
