@@ -12,10 +12,9 @@ export class SystemService {
     
       async create(system: System) {
         const createdSystem = new this.systemModel({
-          topic: system.topic,
           urlName: system.urlName,
           urlImage: system.urlImage,
-          objectName:system.objectName,
+          subject:system.subject,
           manager_id:system.manager_id,
           description:system.description,
           communicationDetails: system.communicationDetails
@@ -34,11 +33,9 @@ export class SystemService {
     async update(updateSystem: System, id:string) {
       const _updatesystem = this.systemModel.findOne({_id :id});
       const _system={$set:({
-        uid:updateSystem.uid,
-        topic: updateSystem.topic,
         urlName: updateSystem.urlName,
         urlImage: updateSystem.urlImage,
-        objectName: updateSystem.objectName,
+        subject: updateSystem.subject,
         manager_id: updateSystem.manager_id,
         description: updateSystem.description,
         communicationDetails: updateSystem.communicationDetails,
