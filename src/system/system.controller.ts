@@ -11,10 +11,12 @@ export class SystemController {
 
     @Post()
     createSystem(@Body() newSystem: System) {
+        debugger
         this.systemService.create(newSystem);
     }
     @Get()
     getSystem() {
+        debugger
         return this.systemService.findAll();
     };
     @Get('/:id')

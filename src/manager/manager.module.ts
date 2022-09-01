@@ -6,7 +6,7 @@ import { ManagerSchema } from './manager.model';
 
 
 @Module({
-    imports: [MongooseModule.forFeature([{name: 'Location', schema: ManagerSchema}])],
+    imports: [MongooseModule.forFeature([{name: 'Manager', schema: ManagerSchema}])],
     controllers: [ManagerController],
     providers: [ManagerService]
 })

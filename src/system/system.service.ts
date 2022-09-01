@@ -3,46 +3,41 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { find } from 'rxjs';
 import { systemDTO } from 'src/DTO/system.dto';
-import { User } from 'src/user/user.model';
 
 import { System } from './system.model';
 @Injectable()
 export class SystemService {
     constructor(
         @InjectModel('System') private readonly systemModel: Model<System>) { }
-        // @InjectModel('User') private readonly userModel: Model<User>
     
       async create(system: System) {
         const createdSystem = new this.systemModel({
-          topic: system.topic,
-          urlName: system.urlName,
+          subject: system.subject,
+          name: system.name,
           urlImage: system.urlImage,
-          objectName:system.objectName,
-          managerUid:system.managerUid,
+          admin_id:system.admin_id,
           description:system.description,
           communicationDetails: system.communicationDetails
         });
-        // await createdSystem.save();
-        // const updtUser= this.userModel.findOne({uid:createdSystem.managerUid})
+        await createdSystem.save();
       }
     
       findAll(): Promise<System[]> {
         return this.systemModel.find().exec();
       }
 
+      //find all systems's user
       async find(systemId: string): Promise<systemDTO[]> {
-        return await this.systemModel.find({ managerUid: systemId });
+        return await this.systemModel.find({ admin_id: systemId });
 
     }
     async update(updateSystem: System, id:string) {
       const _updatesystem = this.systemModel.findOne({_id :id});
       const _system={$set:({
-        uid:updateSystem.uid,
-        topic: updateSystem.topic,
-        urlName: updateSystem.urlName,
+        subject:updateSystem.subject,
+        name: updateSystem.name,
         urlImage: updateSystem.urlImage,
-        objectName: updateSystem.objectName,
-        managerUid: updateSystem.managerUid,
+        admin_id: updateSystem.admin_id,
         description: updateSystem.description,
         communicationDetails: updateSystem.communicationDetails,
       })};

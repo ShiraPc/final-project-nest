@@ -1,21 +1,18 @@
 import * as mongoose from 'mongoose';
 
 export const SystemSchema = new mongoose.Schema({
-    topic: { type: String, required: true},
-    urlName: { type: String, required: true, unique: true},
-    objectName: { type: String, required: true },
-    managerUid: { type: String, required: true },
-    description: { type: String, required: true },
-    communicationDetails: { type: Object,  required: true }
+    admin_id:{type: String, required: true},
+    name:{ type: String, required: true},
+    description:{ type: String, required: true},
+    subject:{ type: String, required: true},
+    communicationDetails:{ type: String, required: true}
 })
 
 export class System {
-    uid: string;
-    topic: string;
-    urlName: string;
-    urlImage: string;
-    objectName: string;
-    managerUid: string;
+    admin_id: string;
+    name: string;
     description: string;
-    communicationDetails: Object;
+    subject: string;
+    urlImage: string;
+    communicationDetails:string;
 }

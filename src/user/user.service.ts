@@ -3,31 +3,8 @@ import { Injectable, Inject } from '@nestjs/common';
 import { User } from './user.model';
 import { InjectModel } from '@nestjs/mongoose';
 import { urlencoded } from 'express';
-import console from 'console';
-import { userDTO } from 's
-  findOne(id: any) {
-      throw new Error("Method not implemented.");
-  }rc/DTO/user.dto';
-
-// import { User } from 'src/schemas/user.schema';
-//import { User, UserDocument } from './schemas/user.schema';
-//import { CreateUserDto } from './dto/create-user.dto';
-
-// @Injectable()
-// export class CatsService {
-//   //constructor(@InjectModel(User.name) private catModel: Model<UserDocument>) {}
-
-//   async create(createCatDto: CreateUserDto): Promise<User> {
-//     const createdCat = new this.catModel(createCatDto);
-//     return createdCat.save();
-//   }
-
-//   async findAll(): Promise<User[]> {
-//     return this.catModel.find().exec();
-//   }
-// }
-
-
+import { userDTO } from 'src/DTO/user.dto';
+  
 @Injectable()
 export class UserService {
   constructor(
@@ -36,7 +13,6 @@ export class UserService {
   async create(user: User) {
     const createdUser = new this.userModel({
       uid:user.uid,
-      role: user.role,
       firstName: user.firstName,
       lastName: user.lastName,
       phone: user.phone,
@@ -51,14 +27,13 @@ export class UserService {
 
   
   async findOne(userId: string): Promise<userDTO> {
-    return await this.userModel.findOne({ uid: userId });
+    return await this.userModel.findOne({ _id: userId });
 }
 
   async update(updateUser: User, id:string) {
     const _updateUser = this.userModel.findOne({_id :id});
     const _user={$set:({
       uid:updateUser.uid,
-      role: updateUser.role,
       firstName: updateUser.firstName,
       lastName: updateUser.lastName,
       phone: updateUser.phone,

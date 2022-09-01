@@ -8,12 +8,7 @@ import { Manager } from './Manager.model';
 export class ManagerService {
     constructor(
         @InjectModel('Manager') private readonly managerModel: Model<Manager>) { }
-    //user_id:string;
-    // system_id:string;
-    // active:boolean;
-    // display_name:string;
-    // role:role;
-    // invitation_sent: [];
+    
     async create(manager: Manager) {
         const createdManager = new this.managerModel({
             user_id: manager.user_id,

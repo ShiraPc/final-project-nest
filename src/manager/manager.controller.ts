@@ -14,7 +14,6 @@ export class ManagerController {
     }
     @Get()
     getManager() {
-        debugger
         return this.managerService.findAll();
     };
     @Get('/:id')
