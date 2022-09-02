@@ -6,12 +6,13 @@ import { UserModule } from './user/user.module';
 import { SystemModule } from './system/system.module';
 import { LocationModule } from './location/location.module';
 import { RequestModule } from './request/request.module';
+import { ManagerModule } from './manager/manager.module';
 
 
 
 @Module({
 
-  imports: [AuthModule, MongooseModule.forRoot('mongodb://127.0.0.1:27017/finalProjectDB'),UserModule, SystemModule, LocationModule, RequestModule],
+  imports: [AuthModule, MongooseModule.forRoot('mongodb://127.0.0.1:27017/finalProjectDB'),UserModule, SystemModule, LocationModule, RequestModule,ManagerModule],
   controllers: [],
   providers: [],
 
