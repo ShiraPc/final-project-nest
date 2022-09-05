@@ -12,7 +12,7 @@ import { ManagerModule } from './manager/manager.module';
 
 @Module({
 
-  imports: [AuthModule, MongooseModule.forRoot('mongodb://127.0.0.1:27017/finalProjectDB'),UserModule, SystemModule, LocationModule, RequestModule,ManagerModule],
+  imports: [AuthModule, MongooseModule.forRoot('mongodb+srv://ShiraShr:SLzsVbcGC7gSlWPp@cluster0.i0ip4gt.mongodb.net/?retryWrites=true&w=majority'),UserModule, SystemModule, LocationModule, RequestModule,ManagerModule],
   controllers: [],
   providers: [],
 
