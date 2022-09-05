@@ -12,15 +12,18 @@ export class ManagerService {
     @InjectModel('Manager') private readonly managerModel: Model<Manager>) { }
 
   async create(manager: Manager) {
+    debugger
     const createdManager = new this.managerModel({
         user_id:manager.user_id,
         system_id:manager.system_id,
         active:manager.active,
         display_name:manager.display_name,
         role:manager.role,
-        invitation_sent: manager.invitation_sent,
+        // invitation_sent: manager.invitation_sent,
     });
-    await createdManager.save();
+    debugger
+    
+  return await createdManager.save();
   }
 
   findAll(): Promise<Manager[]> {

@@ -20,6 +20,10 @@ export class SystemController {
     getOneSystem(@Param('id') id:string) {
         return this.systemService.find(id);
     };
+    @Get('/:id')
+    getSystemUser(@Param('id') id:string) {
+        return this.systemService.findAllUser(id);
+    };
     @Put('/:id')
     updateSystem(@Body() updateSystem:System, @Param('id') id:string) {
         return this.systemService.update(updateSystem , id);

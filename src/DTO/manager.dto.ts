@@ -8,6 +8,6 @@ export class managerDTO{
     active:boolean;
     display_name:string;
     role:string;
-    invitation_sent: [];
+    // invitation_sent: [];
     
 }

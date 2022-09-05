@@ -19,7 +19,7 @@ export class SystemService {
           description:system.description,
           communicationDetails: system.communicationDetails
         });
-        await createdSystem.save();
+       return await createdSystem.save();
         // const updtUser= this.userModel.findOne({uid:createdSystem.managerUid})
       }
     
@@ -28,9 +28,14 @@ export class SystemService {
       }
 
       async find(systemId: string): Promise<systemDTO[]> {
-        return await this.systemModel.find({ manager_id: systemId });
-    }
-    async update(updateSystem: System, id:string) {
+        return await this.systemModel.find({ _id: systemId });
+      }
+
+      async findAllUser(userId: string): Promise<System[]> {
+      return await this.systemModel.find({ manager_id: userId });
+      }
+
+      async update(updateSystem: System, id:string) {
       const _updatesystem = this.systemModel.findOne({_id :id});
       const _system={$set:({
         urlName: updateSystem.urlName,
@@ -41,8 +46,9 @@ export class SystemService {
         communicationDetails: updateSystem.communicationDetails,
       })};
       await this.systemModel.updateOne({_id:Object(id)},updateSystem);
-    }
-    async delete(idS:string) {
+      }
+      
+      async delete(idS:string) {
       await this.systemModel.deleteOne({_id:idS});
-  }
+      }
 }
