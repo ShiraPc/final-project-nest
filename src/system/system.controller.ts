@@ -16,9 +16,9 @@ export class SystemController {
     getSystem() {
         return this.systemService.findAll();
     };
-    @Get('/:id')
-    getOneSystem(@Param('id') id:string) {
-        return this.systemService.find(id);
+    @Get('/getSystemByUrlName/:name')
+    getOneSystem(@Param('name') name:string) {
+        return this.systemService.find(name);
     };
     @Get('/:id')
     getSystemUser(@Param('id') id:string) {

@@ -8,7 +8,6 @@ import { System } from './system.model';
 export class SystemService {
     constructor(
         @InjectModel('System') private readonly systemModel: Model<System>) { }
-        // @InjectModel('User') private readonly userModel: Model<User>
     
       async create(system: System) {
         const createdSystem = new this.systemModel({
@@ -27,8 +26,9 @@ export class SystemService {
         return this.systemModel.find().exec();
       }
 
-      async find(systemId: string): Promise<systemDTO[]> {
-        return await this.systemModel.find({ _id: systemId });
+      async find(systemUrlName: string): Promise<systemDTO[]> {
+        debugger
+        return await this.systemModel.find({ urlName: systemUrlName });
       }
 
       async findAllUser(userId: string): Promise<System[]> {
@@ -47,7 +47,7 @@ export class SystemService {
       })};
       await this.systemModel.updateOne({_id:Object(id)},updateSystem);
       }
-      
+
       async delete(idS:string) {
       await this.systemModel.deleteOne({_id:idS});
       }
