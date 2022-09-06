@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { System } from './system.model';
 import { SystemService } from './system.service';
 
@@ -16,4 +16,20 @@ export class SystemController {
     getSystem() {
         return this.systemService.findAll();
     };
+    @Get('/getSystemByUrlName/:name')
+    getOneSystem(@Param('name') name:string) {
+        return this.systemService.find(name);
+    };
+    @Get('/:id')
+    getSystemUser(@Param('id') id:string) {
+        return this.systemService.findAllUser(id);
+    };
+    @Put('/:id')
+    updateSystem(@Body() updateSystem:System, @Param('id') id:string) {
+        return this.systemService.update(updateSystem , id);
+    };
+    @Delete('/:id')
+    deleteSystem(@Param('id') id:string){
+        return this.systemService.delete(id);
+    }
 }

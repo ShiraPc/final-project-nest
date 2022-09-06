@@ -4,10 +4,8 @@ import { User } from './user.model';
 import { InjectModel } from '@nestjs/mongoose';
 import { urlencoded } from 'express';
 import console from 'console';
-import { userDTO } from 's
-  findOne(id: any) {
-      throw new Error("Method not implemented.");
-  }rc/DTO/user.dto';
+import { userDTO } from 'src/DTO/user.dto';
+
 
 @Injectable()
 export class UserService {
@@ -17,7 +15,7 @@ export class UserService {
   async create(user: User) {
     const createdUser = new this.userModel({
       uid:user.uid,
-      role: user.role,
+      // role: user.role,
       firstName: user.firstName,
       lastName: user.lastName,
       phone: user.phone,
@@ -31,15 +29,15 @@ export class UserService {
   }
 
   
-  async findOne(userId: string): Promise<userDTO> {
-    return await this.userModel.findOne({ _id: userId });
+  async findOne(uId: string): Promise<userDTO> {
+    return await this.userModel.findOne({ uid: uId });
 }
 
-  async update(updateUser: User, id:number) {
-    const _updateUser = this.userModel.findOne(_id => _id==id);
+  async update(updateUser: User, id:string) {
+    const _updateUser = this.userModel.findOne({_id :id});
     const _user={$set:({
       uid:updateUser.uid,
-      role: updateUser.role,
+      // role: updateUser.role,
       firstName: updateUser.firstName,
       lastName: updateUser.lastName,
       phone: updateUser.phone,
@@ -47,8 +45,12 @@ export class UserService {
     })};
     await this.userModel.updateOne({_id:Object(id)},updateUser);
   }
+
+  async delete(id:string) {
+    await this.userModel.deleteOne({_id:id});
 }
 
+}
 
 
 
