@@ -32,7 +32,7 @@ export class ManagerService {
 
   
   async findOne(mngId: string): Promise<managerDTO> {
-    return await this.managerModel.findOne({ _id: mngId });
+    return await this.managerModel.findOne({ user_id: mngId });
 }
 
   async update(updateManager: Manager, id:string) {

@@ -1,6 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { SystemService } from './system.service';
 
+jest.mock('./system.model');
+
 describe('SystemService', () => {
   let service: SystemService;
 
@@ -15,4 +17,13 @@ describe('SystemService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  it('should be defined', () => {
+    expect(service).toBeDefined();
+    service.findAll().then(() => {
+      
+     })
+
+  });
+
 });
