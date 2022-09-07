@@ -27,7 +27,6 @@ export class SystemService {
       }
 
       async find(systemUrlName: string): Promise<systemDTO[]> {
-        debugger
         return await this.systemModel.find({ urlName: systemUrlName });
       }
 
