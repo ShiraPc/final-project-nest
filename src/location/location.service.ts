@@ -30,8 +30,8 @@ export class LocationService {
         return this.locationModel.find().exec();
     }
 
-    async findOne(locationId: string): Promise<locationDTO> {
-        return await this.locationModel.findOne({ _id: locationId });
+    async findOne(locationId: string): Promise<Location[]> {
+        return await this.locationModel.find({ system_id: locationId });
     }
 
     async update(updateLocation: Location, id:string) {
