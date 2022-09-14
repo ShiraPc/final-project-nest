@@ -31,8 +31,8 @@ export class ManagerService {
   }
 
   
-  async findOne(mngId: string): Promise<managerDTO> {
-    return await this.managerModel.findOne({ user_id: mngId });
+  async findOne(mngId: string): Promise<Manager[]> {
+    return await this.managerModel.find({ user_id: mngId });
 }
 
   async update(updateManager: Manager, id:string) {
