@@ -16,9 +16,13 @@ export class SystemController {
     getSystem() {
         return this.systemService.findAll();
     };
+    @Get('/getSystemByUrlName/:name')
+    getOneSystem(@Param('name') name:string) {
+        return this.systemService.find(name);
+    };
     @Get('/:id')
-    getOneSystem(@Param('id') id:string) {
-        return this.systemService.findOne(id);
+    getSystemUser(@Param('id') id:string) {
+        return this.systemService.findAllUser(id);
     };
     @Put('/:id')
     updateSystem(@Body() updateSystem:System, @Param('id') id:string) {

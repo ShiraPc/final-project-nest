@@ -6,6 +6,7 @@ import { urlencoded } from 'express';
 import console from 'console';
 import { userDTO } from 'src/DTO/user.dto';
 
+
 @Injectable()
 export class UserService {
   constructor(
@@ -14,7 +15,7 @@ export class UserService {
   async create(user: User) {
     const createdUser = new this.userModel({
       uid:user.uid,
-      role: user.role,
+      // role: user.role,
       firstName: user.firstName,
       lastName: user.lastName,
       phone: user.phone,
@@ -28,15 +29,15 @@ export class UserService {
   }
 
   
-  async findOne(userId: string): Promise<userDTO> {
-    return await this.userModel.findOne({ _id: userId });
+  async findOne(uId: string): Promise<userDTO> {
+    return await this.userModel.findOne({ uid: uId });
 }
 
   async update(updateUser: User, id:string) {
     const _updateUser = this.userModel.findOne({_id :id});
     const _user={$set:({
       uid:updateUser.uid,
-      role: updateUser.role,
+      // role: updateUser.role,
       firstName: updateUser.firstName,
       lastName: updateUser.lastName,
       phone: updateUser.phone,
@@ -50,5 +51,6 @@ export class UserService {
 }
 
 }
+
 
 
